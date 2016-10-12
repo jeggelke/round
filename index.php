@@ -15,6 +15,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
+		<span>This is some text that should show up on the home page</span>
 		<main id="main" class="site-main" role="main">
 
 		<?php
