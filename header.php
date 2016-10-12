@@ -57,7 +57,7 @@
 
 				</div><!-- .site-branding -->
 
-				<nav id="site-navigation" class="main-navigation navbar invisible" role="navigation">
+				<nav id="site-navigation" class="main-navigation navbar hidden" role="navigation">
 					<div class="container-fluid">
 						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'round' ); ?></button>
 						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'menu_class' => 'nav navbar-nav' ) ); ?>
