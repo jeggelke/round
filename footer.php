@@ -13,11 +13,12 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'round' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'round' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'round' ), 'round', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+	<footer id="colophon" class="site-footer container-fluid" role="contentinfo">
+		<div class="site-info row">
+			<div class="col-xs-12">
+				<span>Round Designs &copy; <?php echo date("Y"); ?></span>
+				<!-- <span class="sep"> | </span> -->
+			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

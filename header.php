@@ -20,6 +20,8 @@
 <link id="bootstrap-css" rel="stylesheet" href="wp-content/themes/round/3rd-party/bootstrap/css/bootstrap.min.css">
 <link id="normalize-css" rel="stylesheet" href="wp-content/themes/round/3rd-party/normalize/normalize.css">
 <link id="main-style" rel="stylesheet" href="wp-content/themes/round/css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="wp-content/themes/round/3rd-party/bootstrap/js/bootstrap.min.js"> </script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -31,28 +33,35 @@
 				<div class="site-branding ">
 					<div class="row header-container">
 						<div class="col-xs-12 col-sm-6 col-sm-offset-3">
-								<img src="/wp-content/themes/round/theme-images/banner.png" class="img-responsive" alt="round designs banner">
+<!-- DONT COMMIT THIS WITHOUT adding / before wp-content-->
+								<img src="wp-content/themes/round/theme-images/banner.png" class="img-responsive" alt="round designs banner">
+						</div>
+						<div class="col-xs-6 col-xs-offset-3">
+							<?php
+							/*
+							if ( is_front_page() && is_home() ) : ?>
+								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+							<?php else : ?>
+								<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+							<?php
+							endif;
+							*/
+
+							$description = get_bloginfo( 'description', 'display' );
+							if ( $description || is_customize_preview() ) : ?>
+								<p class="site-description text-center"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+							<?php
+							endif; ?>
 						</div>
 					</div>
-					<img src
-					<?php
-					if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
-					endif;
 
-					$description = get_bloginfo( 'description', 'display' );
-					if ( $description || is_customize_preview() ) : ?>
-						<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-					<?php
-					endif; ?>
 				</div><!-- .site-branding -->
 
-				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'round' ); ?></button>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+				<nav id="site-navigation" class="main-navigation navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'round' ); ?></button>
+						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'menu_class' => 'nav navbar-nav' ) ); ?>
+					</div>
 				</nav><!-- #site-navigation -->
 			</header><!-- #masthead -->
 		</div>

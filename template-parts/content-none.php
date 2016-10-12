@@ -10,13 +10,16 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
+	<!-- <header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'round' ); ?></h1>
-	</header><!-- .page-header -->
+	</header>--><!-- .page-header --> 
 
-	<div class="page-content">
+	<div class="page-content container">
+		<div class="col-xs-8 col-xs-offset-2">
+			<p>This site is still under construction! Check back later for more information</p>
+		</div>
 		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+/*		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
 			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'round' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
@@ -32,6 +35,8 @@
 			<?php
 				get_search_form();
 
-		endif; ?>
+		endif;
+*/
+		?>
 	</div><!-- .page-content -->
 </section><!-- .no-results -->
