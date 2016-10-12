@@ -12,11 +12,11 @@
 <section class="no-results not-found">
 	<!-- <header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'round' ); ?></h1>
-	</header>--><!-- .page-header --> 
+	</header>--><!-- .page-header -->
 
 	<div class="page-content container">
 		<div class="col-xs-8 col-xs-offset-2">
-			<p>This site is still under construction! Check back later for more information</p>
+			<p class="text-center">This site is still under construction! Check back later for more information.</p>
 		</div>
 		<?php
 /*		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
