@@ -22,6 +22,7 @@
 <link id="main-style" rel="stylesheet" href="wp-content/themes/round/css/main.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="wp-content/themes/round/3rd-party/bootstrap/js/bootstrap.min.js"> </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 
 <body <?php body_class(); ?>>

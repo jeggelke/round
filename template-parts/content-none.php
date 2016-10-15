@@ -14,10 +14,8 @@
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'round' ); ?></h1>
 	</header>--><!-- .page-header -->
 
-	<div class="page-content container">
-		<div class="col-xs-8 col-xs-offset-2">
-			<p class="text-center">This site is still under construction! Check back later for more information.</p>
-		</div>
+	<div class="page-content hidden">
+
 		<?php
 /*		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 

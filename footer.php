@@ -15,7 +15,7 @@
 
 	<footer id="colophon" class="site-footer container-fluid" role="contentinfo">
 		<div class="site-info row">
-			<div class="col-xs-12">
+			<div class="col-xs-10 col-xs-offset-1">
 				<span>Round Designs &copy; <?php echo date("Y"); ?></span>
 				<!-- <span class="sep"> | </span> -->
 			</div>
