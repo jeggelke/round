@@ -14,8 +14,32 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer container-fluid" role="contentinfo">
+		<div class="row social-footer">
+			<div class="col-xs-12">
+				<div class="social-container center-block text-center">
+					<div class="col-xs-12 col-sm-4 no-side-padding">
+						<a href="https://www.facebook.com/iamrounddesigns/" target="blank">
+							<i class="fa fa-facebook-official" aria-hidden="true"></i>
+							@iamrounddesigns
+						</a>
+					</div>
+					<div class="col-xs-12 col-sm-4 no-side-padding">
+						<a href="https://www.instagram.com/rounddesigns/" target="blank">
+								<i class="fa fa-instagram"></i>
+							 @rounddesigns
+						 </a>
+					</div>
+					<div class="col-xs-12 col-sm-4 no-side-padding">
+						<a href="mailto:sarah@iamround.com" target="blank">
+								<i class="fa fa-envelope"></i>
+							 sarah@iamround.com
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="site-info row">
-			<div class="col-xs-10 col-xs-offset-1">
+			<div class="col-xs-12 text-center">
 				<span>Round Designs &copy; <?php echo date("Y"); ?></span>
 				<!-- <span class="sep"> | </span> -->
 			</div>
