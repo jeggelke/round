@@ -1,7 +1,7 @@
 body {
   background-color: #fff;
-  font-family: 'Mallanna', sans-serif;
-  font-size: 1.7em;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.4em;
 }
 
 h1, h2, h3, h4 {
@@ -82,6 +82,11 @@ p {
 
 .event-archive-container {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.event-archive-container:last-child {
+    margin-bottom: 0px;
 }
 
 .more-info span{

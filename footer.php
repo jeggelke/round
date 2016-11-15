@@ -32,7 +32,7 @@
 					<div class="col-xs-12 col-sm-4 no-side-padding">
 						<a href="mailto:sarah@iamround.com" target="blank">
 								<i class="fa fa-envelope"></i>
-							 sarah@iamround.com
+							 info@iamround.com
 						</a>
 					</div>
 				</div>

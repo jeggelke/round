@@ -129,10 +129,22 @@ get_header(); ?>
 								<?php the_content(); ?>
 								<strong>Date:</strong> <?php
 
-								echo $date->format('m/d/Y'); ?>
+								echo $date->format('m/d/Y');
+								if ($enddate != '') {
+									$enddate = new DateTime($enddate);
+									echo ' - ' . $enddate->format('m/d/Y');
+								}
+								if (get_field('event_start_time', false, false) != '') :
+								?>
 								<br>
 								<strong>Time:</strong>
-								<?php echo get_field('event_start_time', false, false) ?> - <?php echo get_field('event_end_time', false, false) ?>
+								<?php echo get_field('event_start_time', false, false);
+								if (get_field('event_end_time', false, false) != '')
+								{
+								 	 echo " - " . get_field('event_end_time', false, false);
+								}
+								endif;
+	 							?>
 								<br>
 								<strong>Location: </strong>
 								<?php
