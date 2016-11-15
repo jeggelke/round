@@ -19,20 +19,17 @@
 				<div class="social-container center-block text-center">
 					<div class="col-xs-12 col-sm-4 no-side-padding">
 						<a href="https://www.facebook.com/iamrounddesigns/" target="blank">
-							<i class="fa fa-facebook-official" aria-hidden="true"></i>
-							@iamrounddesigns
+							<i class="fa fa-facebook-official" aria-hidden="true"></i>@iamrounddesigns
 						</a>
 					</div>
 					<div class="col-xs-12 col-sm-4 no-side-padding">
 						<a href="https://www.instagram.com/rounddesigns/" target="blank">
-								<i class="fa fa-instagram"></i>
-							 @rounddesigns
+								<i class="fa fa-instagram"></i>@rounddesigns
 						 </a>
 					</div>
 					<div class="col-xs-12 col-sm-4 no-side-padding">
 						<a href="mailto:sarah@iamround.com" target="blank">
-								<i class="fa fa-envelope"></i>
-							 info@iamround.com
+								<i class="fa fa-envelope"></i>info@iamround.com
 						</a>
 					</div>
 				</div>

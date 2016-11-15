@@ -175,6 +175,11 @@ p {
   font-size: 1.2em;
 }
 
+i.fa {
+  padding-right: 10px;
+  padding-left: 2px;
+}
+
 .social-footer span {
     padding: 0px 10px;
     padding-right: 8px;
