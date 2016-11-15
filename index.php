@@ -117,6 +117,7 @@ get_header(); ?>
 					foreach ($recent_posts as $post) : setup_postdata( $post );
 					$date = get_field('event_date', false, false);
 					$date = new DateTime($date);
+					$enddate = get_field('event_end_date', false, false);
 					?>
 
 					<div class="col-xs-12 event-archive-container">
