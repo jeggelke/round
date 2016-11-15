@@ -144,7 +144,7 @@ get_header(); ?>
 								?>
 								<a href="<?php echo $mapsUrl ?>" target="_blank"><?php echo str_replace(", United States", "", $location['address'])?> <i class="fa fa-external-link" aria-hidden="true"></i></a>
 								<?php endif ?>
-								<h4><a href="<?php the_field('event_website') ?>">More info <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
+								<h4><a href="<?php the_field('event_website') ?>" target="_blank">More info <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
 							</div>
 						</div>
 					</div>
