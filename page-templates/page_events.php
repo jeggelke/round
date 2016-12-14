@@ -205,6 +205,89 @@ $(document).ready(function(){
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+
+<!-- current events -->
+
+				<?php
+				$date = date('Ymd');
+	 		 	$prevargs = array(
+											'numberposts' => 100,
+											'offset' => 0,
+											'category' => 0,
+											'orderby' => 'event_date',
+											'order' => 'asc',
+											'meta_key' => 'event_date',
+											'meta_compare'	=> '<',
+											'meta_value'		=> $date,
+											'post_type' => 'event',
+											'post_status' => 'publish',
+											'suppress_filters' => true
+				);
+
+				$recent_posts = get_posts( $prevargs, ARRAY_A );
+
+				if (!empty($recent_posts)) : ?>
+					<div class="section past-events container-fluid">
+						<h3 class="text-center">Current Events</h3>
+				<?php
+				foreach ($recent_posts as $post) : setup_postdata( $post );
+				$date = get_field('event_date', false, false);
+				$datestring = $date;
+				$date = new DateTime($date);
+				$enddate = get_field('event_end_date', false, false);
+				if ($enddate >= date('Ymd') and $datestring <= date('Ymd')):
+				?>
+
+				<div class="row no-side-margin event-archive-container event-section">
+					<div class="col-xs-12 col-sm-4 col-sm-offset-1">
+						<?php the_post_thumbnail( 'medium', array( 'class' => 'event-thumb-homepage img-responsive center-block' ) ); ?>
+					</div>
+					<div class="col-xs-12 col-sm-7">
+						<div class="center-block">
+							<h3><?php the_title(); ?></h3>
+							<?php the_content(); ?>
+							<strong>Date:</strong> <?php
+
+							echo $date->format('m/d/Y');
+							if ($enddate != '') {
+								$enddate = new DateTime($enddate);
+								echo ' - ' . $enddate->format('m/d/Y');
+							}
+							if (get_field('event_start_time', false, false) != '') :
+							?>
+							<br>
+							<strong>Time:</strong>
+							<?php echo get_field('event_start_time', false, false);
+							if (get_field('event_end_time', false, false) != '')
+							{
+							 	 echo " - " . get_field('event_end_time', false, false);
+							}
+							endif;
+ 							?>
+							<br>
+							<strong>Location: </strong>
+							<?php
+
+							$location = get_field('event_location');
+
+							if( !empty($location) ):
+							$mapsUrl = 'http://maps.google.com/?q=' . $location['address'];
+							?>
+							<a href="<?php echo $mapsUrl ?>" target="_blank"><?php echo str_replace(", United States", "", $location['address'])?> <i class="fa fa-external-link" aria-hidden="true"></i></a>
+							<?php endif; ?>
+						</div>
+					</div>
+				</div>
+				<?php
+				endif;
+				endforeach;
+				?>
+				</div>
+				<?php
+				endif;
+				?>
+
+<!-- end current events -->
 			<div class="section upcoming-events container-fluid">
 				<h3 class="text-center" style="margin-top:0px; margin-bottom: 15px;">Upcoming Events</h3>
 				<?php
@@ -284,7 +367,7 @@ $(document).ready(function(){
 				else :
 				?>
 
-				<h3 class="text-center">There are no upcoming events</h3>
+				<h3 class="text-center">Stay tuned for more events!</h3>
 				<?php
 				endif;
 				?>
@@ -297,8 +380,8 @@ $(document).ready(function(){
 											'numberposts' => 100,
 											'offset' => 0,
 											'category' => 0,
-											'orderby' => 'post_date',
-											'order' => 'asc',
+											'orderby' => 'event_date',
+											'order' => 'desc',
 											'meta_key' => 'event_date',
 											'meta_compare'	=> '<',
 											'meta_value'		=> $date,
@@ -316,6 +399,7 @@ $(document).ready(function(){
 				$date = get_field('event_date', false, false);
 				$date = new DateTime($date);
 				$enddate = get_field('event_end_date', false, false);
+				if ($enddate <= date('Ymd') or is_null($enddate)):
 				?>
 
 				<div class="row no-side-margin event-archive-container event-section">
@@ -358,7 +442,9 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-				<?php endforeach;
+				<?php
+				endif;
+				endforeach;
 				else :
 				?>
 

@@ -28,7 +28,7 @@
 						 </a>
 					</div>
 					<div class="col-xs-12 col-sm-4 no-side-padding">
-						<a href="mailto:sarah@iamround.com" target="blank">
+						<a href="mailto:info@iamround.com" target="blank">
 								<i class="fa fa-envelope"></i>info@iamround.com
 						</a>
 					</div>
