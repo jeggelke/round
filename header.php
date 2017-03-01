@@ -20,13 +20,13 @@
   return get_template_directory_uri() . $someUrl;
 } ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Comfortaa|Mallanna|Poppins|Questrial|Quicksand" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Comfortaa|Mallanna|Poppins|Questrial|Quicksand" rel="stylesheet">
 <link id="bootstrap-css" rel="stylesheet" href=<?php echo getRoot('/3rd-party/bootstrap/css/bootstrap.min.css')?>>
 <link id="normalize-css" rel="stylesheet" href=<?php echo getRoot('/3rd-party/normalize/normalize.css')?>>
 <link id="main-style" rel="stylesheet" href=<?php echo getRoot('/css/main.css') ?>>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src=<?php echo getRoot('/3rd-party/bootstrap/js/bootstrap.min.js') ?>> </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

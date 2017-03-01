@@ -225,8 +225,22 @@ $(document).ready(function(){
 				);
 
 				$recent_posts = get_posts( $prevargs, ARRAY_A );
+				$number_of_current_posts = 0;
 
-				if (!empty($recent_posts)) : ?>
+				foreach ($recent_posts as $post) : setup_postdata( $post );
+					$date = get_field('event_date', false, false);
+					$datestring = $date;
+					$date = new DateTime($date);
+					$enddate = get_field('event_end_date', false, false);
+					$enddateproper = new DateTime($enddate);
+					$todays_date = new DateTime(date('Ymd'));
+					$todays_date->setTimezone(new DateTimeZone('America/New_York'));
+					if (($enddateproper->format('Ymd') >= $todays_date->format('Ymd')) and $date->format('Ymd') <= date('Ymd') and !empty($enddate)):
+						$number_of_current_posts = $number_of_current_posts + 1;
+					endif;
+				endforeach;
+
+				if ($number_of_current_posts > 0) : ?>
 					<div class="section past-events container-fluid">
 						<h3 class="text-center">Current Events</h3>
 				<?php
@@ -244,7 +258,7 @@ $(document).ready(function(){
 					</div>
 					<div class="col-xs-12 col-sm-7">
 						<div class="center-block">
-							<h3><?php the_title(); ?></h3>
+							<h4><?php the_title(); ?></h4>
 							<?php the_content(); ?>
 							<strong>Date:</strong> <?php
 
@@ -320,7 +334,7 @@ $(document).ready(function(){
 				<div class="row no-side-margin event-archive-container event-section">
 					<div class="col-xs-12 col-sm-6 col-sm-offset-1">
 						<?php the_post_thumbnail( 'medium', array( 'class' => 'event-thumb-homepage img-responsive center-block' ) ); ?>
-						<h3><?php the_title(); ?></h3>
+						<h4><?php the_title(); ?></h4>
 						<?php the_content(); ?>
 						<strong>Date:</strong> <?php
 
@@ -367,7 +381,7 @@ $(document).ready(function(){
 				else :
 				?>
 
-				<h3 class="text-center">Stay tuned for more events!</h3>
+				<h4 class="text-center">Stay tuned for more events!</h4>
 				<?php
 				endif;
 				?>
@@ -408,7 +422,7 @@ $(document).ready(function(){
 					</div>
 					<div class="col-xs-12 col-sm-7">
 						<div class="center-block">
-							<h3><?php the_title(); ?></h3>
+							<h4><?php the_title(); ?></h4>
 							<?php the_content(); ?>
 							<strong>Date:</strong> <?php
 

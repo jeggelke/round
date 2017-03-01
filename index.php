@@ -114,10 +114,24 @@ get_header(); ?>
 								);
 
 								$recent_posts = get_posts( $prevargs, ARRAY_A );
+								$number_of_current_posts = 0;
 
-								if (!empty($recent_posts)) : ?>
+								foreach ($recent_posts as $post) : setup_postdata( $post );
+									$date = get_field('event_date', false, false);
+									$datestring = $date;
+									$date = new DateTime($date);
+									$enddate = get_field('event_end_date', false, false);
+									$enddateproper = new DateTime($enddate);
+									$todays_date = new DateTime(date('Ymd'));
+									$todays_date->setTimezone(new DateTimeZone('America/New_York'));
+									if (($enddateproper->format('Ymd') >= $todays_date->format('Ymd')) and $date->format('Ymd') <= date('Ymd') and !empty($enddate)):
+										$number_of_current_posts = $number_of_current_posts + 1;
+									endif;
+								endforeach;
+
+								if ($number_of_current_posts > 0) : ?>
 									<div class="section past-events container-fluid">
-										<h3 class="text-center">Current Events</h3>
+										<h3 class="text-center no-bottom-margin">Current Events</h3>
 								<?php
 								foreach ($recent_posts as $post) : setup_postdata( $post );
 								$date = get_field('event_date', false, false);
@@ -137,7 +151,7 @@ get_header(); ?>
 									</div>
 									<div class="col-xs-12 col-sm-7">
 										<div class="center-block">
-											<h3><?php the_title(); ?></h3>
+											<h4><?php the_title(); ?></h4>
 											<?php the_content(); ?>
 											<strong>Date:</strong> <?php
 
@@ -183,7 +197,7 @@ get_header(); ?>
 				<!-- end current events -->
 
 
-				<h3 class="text-center">Next Event</h3>
+				<h3 class="text-center no-bottom-margin">Next Event</h3>
 				<div class="row no-side-margin event-section">
 					<?php
 					$todays_date = date('Ymd');
@@ -215,7 +229,7 @@ get_header(); ?>
 						</div>
 						<div class="col-xs-12 col-sm-6  col-sm-offset-1">
 							<div class="center-block">
-								<h3><?php the_title(); ?></h3>
+								<h4><?php the_title(); ?></h4>
 								<?php the_content(); ?>
 								<strong>Date:</strong> <?php
 
@@ -252,7 +266,7 @@ get_header(); ?>
 					</div>
 					<?php endforeach; ?>
 				<?php else : ?>
-					<h3 class="text-center">Stay tuned for more events!</h3>
+					<h4 class="text-center">Stay tuned for more events!</h4>
 					<?php endif ?>
 				</div>
 				<h3 class="text-center read-more"><a href="events">See All Events</a></h3>

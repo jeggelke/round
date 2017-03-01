@@ -8,6 +8,10 @@ h1, h2, h3, h4 {
   font-family: 'Comfortaa', cursive;
 }
 
+h4 {
+  font-size: 20px;
+}
+
 a {
   text-decoration: none;
   color: #00cccc;
@@ -66,6 +70,10 @@ p {
 .no-side-margin {
   margin-left: 0px;
   margin-right: 0px;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
 }
 
 .header-container {
@@ -221,6 +229,18 @@ i.fa {
 .event-section h3{
   margin-top: 0px !important;
   padding: 0px;
+}
+
+.upcoming-events {
+  padding-top: 15px;
+}
+
+.upcoming-events h4:last-child {
+  margin-bottom: 0px;
+}
+
+.upcoming-events .event-archive-container img {
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px)
