@@ -196,7 +196,12 @@ i.fa {
     padding-left: 20px;
 }
 
-.social-container div:before {
+.footer-header {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.footer-header:before {
   background: url(../dot-blue.png) no-repeat left;
   background-size: 10px;
   padding-left: 14px;
@@ -204,12 +209,16 @@ i.fa {
   content: "";
 }
 
-.social-container div:after {
+.footer-header:after {
   background: url(../dot-blue.png) no-repeat right;
   background-size: 10px;
   padding-right: 14px;
   padding-bottom: 0px;
   content: "";
+}
+
+.footer-section{
+  margin-bottom: 20px;
 }
 
 .social-footer a {

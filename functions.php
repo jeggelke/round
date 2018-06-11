@@ -105,6 +105,7 @@ function round_scripts() {
 	wp_enqueue_style( 'round-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'round-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'round-main', get_template_directory_uri() . '/js/main.js', array(), '20180608', true );
 
 	wp_enqueue_script( 'round-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -147,4 +148,178 @@ function my_acf_google_map_api( $api ){
 
 }
 
+function get_store_address()
+{
+	$address1 = get_option('store_address');
+	$address2 = get_option('store_address2');
+	$city = get_option('store_city');
+	$state = get_option('store_state');
+	$zip = get_option('store_zip');
+	$completeAddress = '';
+	if($address2 != '')
+	{
+		$completeAddress = $address1 . '<br />' . $address2 . '<br />' . $city . ', ' . $state . ' ' . $zip;
+	}
+	else {
+		$completeAddress = $address1 . '<br />' . $city . ', ' . $state . ' ' . $zip;
+	}
+	return $completeAddress;
+}
+
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+add_filter('admin_init', 'my_general_settings_register_store_address_load');
+add_filter('admin_init', 'my_general_settings_register_store_address2_load');
+add_filter('admin_init', 'my_general_settings_register_store_city_load');
+add_filter('admin_init', 'my_general_settings_register_store_state_load');
+add_filter('admin_init', 'my_general_settings_register_store_zip_load');
+add_filter('admin_init', 'my_general_settings_register_sunday_hours_load');
+add_filter('admin_init', 'my_general_settings_register_monday_hours_load');
+add_filter('admin_init', 'my_general_settings_register_tuesday_hours_load');
+add_filter('admin_init', 'my_general_settings_register_wednesday_hours_load');
+add_filter('admin_init', 'my_general_settings_register_thursday_hours_load');
+add_filter('admin_init', 'my_general_settings_register_friday_hours_load');
+add_filter('admin_init', 'my_general_settings_register_saturday_hours_load');
+
+function my_general_settings_register_store_address_load()
+{
+    register_setting('general', 'store_address', 'esc_attr');
+    add_settings_field('store_address', '<label for="store_address">'.__('Store Address' , 'store_address' ).'</label>' , 'my_general_settings_field_store_address_html', 'general');
+}
+
+function my_general_settings_field_store_address_html()
+{
+    $value = get_option( 'store_address', '' );
+    echo '<input type="text" id="store_address" name="store_address" value="' . $value . '" />';
+}
+
+function my_general_settings_register_store_address2_load()
+{
+    register_setting('general', 'store_address2', 'esc_attr');
+    add_settings_field('store_address2', '<label for="store_address2">'.__('Store Address 2' , 'store_address2' ).'</label>' , 'my_general_settings_field_store_address2_html', 'general');
+}
+
+function my_general_settings_field_store_address2_html()
+{
+    $value = get_option( 'store_address2', '' );
+    echo '<input type="text" id="store_address2" name="store_address2" value="' . $value . '" />';
+}
+
+function my_general_settings_register_store_city_load()
+{
+    register_setting('general', 'store_city', 'esc_attr');
+    add_settings_field('store_city', '<label for="store_city">'.__('Store City' , 'store_city' ).'</label>' , 'my_general_settings_field_store_city_html', 'general');
+}
+
+function my_general_settings_field_store_city_html()
+{
+    $value = get_option( 'store_city', '' );
+    echo '<input type="text" id="store_city" name="store_city" value="' . $value . '" />';
+}
+
+function my_general_settings_register_store_zip_load()
+{
+    register_setting('general', 'store_zip', 'esc_attr');
+    add_settings_field('store_zip', '<label for="store_zip">'.__('Store Zip' , 'store_zip' ).'</label>' , 'my_general_settings_field_store_zip_html', 'general');
+}
+
+function my_general_settings_field_store_zip_html()
+{
+    $value = get_option( 'store_zip', '' );
+    echo '<input type="text" id="store_zip" name="store_zip" value="' . $value . '" />';
+}
+
+function my_general_settings_register_store_state_load()
+{
+    register_setting('general', 'store_state', 'esc_attr');
+    add_settings_field('store_state', '<label for="store_state">'.__('Store State' , 'store_state' ).'</label>' , 'my_general_settings_field_store_state_html', 'general');
+}
+
+function my_general_settings_field_store_state_html()
+{
+    $value = get_option( 'store_state', '' );
+    echo '<input type="text" id="store_state" name="store_state" value="' . $value . '" />';
+}
+
+function my_general_settings_register_sunday_hours_load()
+{
+    register_setting('general', 'sunday_hours', 'esc_attr');
+    add_settings_field('sunday_hours', '<label for="sunday_hours">'.__('Sunday Hours' , 'sunday_hours' ).'</label>' , 'my_general_settings_field_sunday_hours_html', 'general');
+}
+
+function my_general_settings_field_sunday_hours_html()
+{
+    $value = get_option( 'sunday_hours', '' );
+    echo '<input type="text" id="sunday_hours" name="sunday_hours" value="' . $value . '" />';
+}
+
+function my_general_settings_register_monday_hours_load()
+{
+    register_setting('general', 'monday_hours', 'esc_attr');
+    add_settings_field('monday_hours', '<label for="monday_hours">'.__('Monday Hours' , 'monday_hours' ).'</label>' , 'my_general_settings_field_monday_hours_html', 'general');
+}
+
+function my_general_settings_field_monday_hours_html()
+{
+    $value = get_option( 'monday_hours', '' );
+    echo '<input type="text" id="monday_hours" name="monday_hours" value="' . $value . '" />';
+}
+
+function my_general_settings_register_tuesday_hours_load()
+{
+    register_setting('general', 'tuesday_hours', 'esc_attr');
+    add_settings_field('tuesday_hours', '<label for="tuesday_hours">'.__('Tuesday Hours' , 'tuesday_hours' ).'</label>' , 'my_general_settings_field_tuesday_hours_html', 'general');
+}
+
+function my_general_settings_field_tuesday_hours_html()
+{
+    $value = get_option( 'tuesday_hours', '' );
+    echo '<input type="text" id="tuesday_hours" name="tuesday_hours" value="' . $value . '" />';
+}
+
+function my_general_settings_register_wednesday_hours_load()
+{
+    register_setting('general', 'wednesday_hours', 'esc_attr');
+    add_settings_field('wednesday_hours', '<label for="wednesday_hours">'.__('Wednesday Hours' , 'wednesday_hours' ).'</label>' , 'my_general_settings_field_wednesday_hours_html', 'general');
+}
+
+function my_general_settings_field_wednesday_hours_html()
+{
+    $value = get_option( 'wednesday_hours', '' );
+    echo '<input type="text" id="wednesday_hours" name="wednesday_hours" value="' . $value . '" />';
+}
+
+function my_general_settings_register_thursday_hours_load()
+{
+    register_setting('general', 'thursday_hours', 'esc_attr');
+    add_settings_field('thursday_hours', '<label for="thursday_hours">'.__('Thursday Hours' , 'thursday_hours' ).'</label>' , 'my_general_settings_field_thursday_hours_html', 'general');
+}
+
+function my_general_settings_field_thursday_hours_html()
+{
+    $value = get_option( 'thursday_hours', '' );
+    echo '<input type="text" id="thursday_hours" name="thursday_hours" value="' . $value . '" />';
+}
+
+function my_general_settings_register_friday_hours_load()
+{
+    register_setting('general', 'friday_hours', 'esc_attr');
+    add_settings_field('friday_hours', '<label for="friday_hours">'.__('Friday Hours' , 'friday_hours' ).'</label>' , 'my_general_settings_field_friday_hours_html', 'general');
+}
+
+function my_general_settings_field_friday_hours_html()
+{
+    $value = get_option( 'friday_hours', '' );
+    echo '<input type="text" id="friday_hours" name="friday_hours" value="' . $value . '" />';
+}
+
+function my_general_settings_register_saturday_hours_load()
+{
+    register_setting('general', 'saturday_hours', 'esc_attr');
+    add_settings_field('saturday_hours', '<label for="saturday_hours">'.__('Saturday Hours' , 'saturday_hours' ).'</label>' , 'my_general_settings_field_saturday_hours_html', 'general');
+}
+
+function my_general_settings_field_saturday_hours_html()
+{
+    $value = get_option( 'saturday_hours', '' );
+    echo '<input type="text" id="saturday_hours" name="saturday_hours" value="' . $value . '" />';
+}
