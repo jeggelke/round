@@ -201,7 +201,7 @@ i.fa {
   margin-bottom: 10px;
 }
 
-.footer-header:before {
+.social-container div:before {
   background: url(../dot-blue.png) no-repeat left;
   background-size: 10px;
   padding-left: 14px;
@@ -209,7 +209,7 @@ i.fa {
   content: "";
 }
 
-.footer-header:after {
+.social-container div:after {
   background: url(../dot-blue.png) no-repeat right;
   background-size: 10px;
   padding-right: 14px;

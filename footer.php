@@ -16,7 +16,7 @@
 	<footer id="colophon" class="site-footer container-fluid" role="contentinfo">
 		<div class="row social-footer">
 			<div class="col-xs-12">
-				<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+				<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 					<div class="col-xs-12 col-sm-6 shop-info text-center footer-section">
 						<div class="footer-header">Visit Us!</div>
 						<div class="shop-address">
@@ -26,14 +26,13 @@
 				<!--	<div class="clearfix visible-sm-block"></div> -->
 					<div class="col-xs-12 col-sm-6 shop-info text-center footer-section">
 						<div class="footer-header">Store Hours</div>
-						<div class="col-xs-12">Sunday: <?php echo get_option('sunday_hours'); ?> </div>
 						<div class="col-xs-12">Monday: <?php echo get_option('monday_hours'); ?> </div>
 						<div class="col-xs-12">Tuesday: <?php echo get_option('tuesday_hours'); ?> </div>
 						<div class="col-xs-12">Wednesday: <?php echo get_option('wednesday_hours'); ?> </div>
 						<div class="col-xs-12">Thursday: <?php echo get_option('thursday_hours'); ?> </div>
 						<div class="col-xs-12">Friday: <?php echo get_option('friday_hours'); ?> </div>
 						<div class="col-xs-12">Saturday: <?php echo get_option('saturday_hours'); ?> </div>
-
+						<div class="col-xs-12">Sunday: <?php echo get_option('sunday_hours'); ?> </div>
 					</div>
 				</div>
 				<div class="col-xs-12 social-container text-center footer-section">
