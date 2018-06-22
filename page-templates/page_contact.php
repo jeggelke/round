@@ -204,6 +204,14 @@ $(document).ready(function(){
 </script>
 
 <?php
+$mondayHours = get_option('monday_hours');
+$tuesdayHours = get_option('tuesday_hours');
+$wednesdayHours = get_option('wednesday_hours');
+$thursdayHours = get_option('thursday_hours');
+$fridayHours = get_option('friday_hours');
+$saturdayHours = get_option('saturday_hours');
+$sundayHours = get_option('sunday_hours');
+
 while ( have_posts() ) : the_post();
 $location = get_field('address');
 $contactUsShortcodeId = get_field('contact_us_shortcode_id');
@@ -236,9 +244,19 @@ $subscribeText = get_field('subscribe_text');
 								<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 							</div>
 							<?php endif; ?>
+							<h4>Hours: </h4>
+							<?php if(!empty($mondayHours)) : ?> <div>Monday: <?php echo $mondayHours ?> </div> <?php endif ?>
+							<?php if(!empty($tuesdayHours)) : ?> <div>Tuesday: <?php echo $tuesdayHours ?> </div> <?php endif ?>
+							<?php if(!empty($wednesdayHours)) : ?> <div>Wednesday: <?php echo $wednesdayHours ?> </div> <?php endif ?>
+							<?php if(!empty($thursdayHours)) : ?> <div>Thursday: <?php echo $thursdayHours ?> </div> <?php endif ?>
+							<?php if(!empty($fridayHours)) : ?> <div>Friday: <?php echo $fridayHours ?> </div> <?php endif ?>
+							<?php if(!empty($saturdayHours)) : ?> <div>Saturday: <?php echo $saturdayHours ?> </div> <?php endif ?>
+							<?php if(!empty($sundayHours)) : ?> <div>Sunday: <?php echo $sundayHours ?> </div> <?php endif ?>
+						</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-12">
+							<h3 class="text-center">Keep in Touch!</h3>
+							<div class="col-xs-12 col-md-6">
 								<!-- Begin MailChimp Signup Form -->
 								<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 								<style type="text/css">
@@ -271,12 +289,15 @@ $subscribeText = get_field('subscribe_text');
 								<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 								<!--End mc_embed_signup-->
 							</div>
+							<div class="col-xs-12 col-md-6">
+								<h4>Contact Us</h4>
+								<?php echo $contactUsShortcode;
+								echo do_shortcode('[contact-form-7 id="' . $contactUsShortcodeId .'" title="' . $contactUsShortcodeTitle .'"]');
+								 ?>
+							</div>
 						</div>
 						<div class="row">
-							<h4>Contact Us</h4>
-							<?php echo $contactUsShortcode;
-							echo do_shortcode('[contact-form-7 id="' . $contactUsShortcodeId .'" title="' . $contactUsShortcodeTitle .'"]');
-							 ?>
+
 						</div>
 					</div>
 				</div>

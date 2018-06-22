@@ -8,6 +8,13 @@
  *
  * @package round
  */
+$mondayHours = get_option('monday_hours');
+$tuesdayHours = get_option('tuesday_hours');
+$wednesdayHours = get_option('wednesday_hours');
+$thursdayHours = get_option('thursday_hours');
+$fridayHours = get_option('friday_hours');
+$saturdayHours = get_option('saturday_hours');
+$sundayHours = get_option('sunday_hours');
 
 ?>
 
@@ -26,13 +33,13 @@
 				<!--	<div class="clearfix visible-sm-block"></div> -->
 					<div class="col-xs-12 col-sm-6 shop-info text-center footer-section">
 						<div class="footer-header">Store Hours</div>
-						<div class="col-xs-12">Monday: <?php echo get_option('monday_hours'); ?> </div>
-						<div class="col-xs-12">Tuesday: <?php echo get_option('tuesday_hours'); ?> </div>
-						<div class="col-xs-12">Wednesday: <?php echo get_option('wednesday_hours'); ?> </div>
-						<div class="col-xs-12">Thursday: <?php echo get_option('thursday_hours'); ?> </div>
-						<div class="col-xs-12">Friday: <?php echo get_option('friday_hours'); ?> </div>
-						<div class="col-xs-12">Saturday: <?php echo get_option('saturday_hours'); ?> </div>
-						<div class="col-xs-12">Sunday: <?php echo get_option('sunday_hours'); ?> </div>
+						<?php if(!empty($mondayHours)) : ?> <div class="col-xs-12">Monday: <?php echo $mondayHours ?> </div> <?php endif ?>
+						<?php if(!empty($tuesdayHours)) : ?> <div class="col-xs-12">Tuesday: <?php echo $tuesdayHours ?> </div> <?php endif ?>
+						<?php if(!empty($wednesdayHours)) : ?> <div class="col-xs-12">Wednesday: <?php echo $wednesdayHours ?> </div> <?php endif ?>
+						<?php if(!empty($thursdayHours)) : ?> <div class="col-xs-12">Thursday: <?php echo $thursdayHours ?> </div> <?php endif ?>
+						<?php if(!empty($fridayHours)) : ?> <div class="col-xs-12">Friday: <?php echo $fridayHours ?> </div> <?php endif ?>
+						<?php if(!empty($saturdayHours)) : ?> <div class="col-xs-12">Saturday: <?php echo $saturdayHours ?> </div> <?php endif ?>
+						<?php if(!empty($sundayHours)) : ?> <div class="col-xs-12">Sunday: <?php echo $sundayHours ?> </div> <?php endif ?>
 					</div>
 				</div>
 				<div class="col-xs-12 social-container text-center footer-section">
